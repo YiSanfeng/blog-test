@@ -46,26 +46,28 @@ height、width的用法：img height="100px" width="100" src="xxx.png" alt="xxx(
   tbody
   tfoot
   ```
+```
 <table>
-       <thead>
-           <tr>
-            <th>表标题</th>
-            <th>表标题</th>
-           </tr>
-        </thead>
-           <tbody>
-            <tr>
-                <td>表正文</td>
-                <td>表正文</td>
-            </tr>
-           </tbody>
-       <tfoot>
-        <td>表末文</td>
-        <td>表末文</td>
-       </tfoot>
-    </table>
+<thead>
+<tr>
+<th>表标题</th>
+<th>表标题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>表正文</td>
+<td>表正文</td>
+</tr>
+</tbody>
+<tfoot>
+<td>表末文</td>
+<td>表末文</td>
+</tfoot>
+</table>
+```
 
-4. 感想
+1. 感想
 
     今天学的HTML常用标签个人感觉相比之前学习的内容难度稍高，看教学视频时自己也动手操作，但会遇到很多问题，比如一些标签的使用，自己动手操作过后会很快忘记，然后还有英语单词使用不够熟练，不知道是自己是基础比较差的缘故，还是同学们都会有这个情况.
 
