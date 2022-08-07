@@ -1,6 +1,8 @@
 # JavaScript的诞生
 ## JavaScript 的历史
 <a href="http://www.ruanyifeng.com/blog/2011/06/birth_of_javascript.html">链接</a>
+
+
 ## JavaScript 诞生记
 * 公司要给浏览器添加一个脚本功能，这个脚本功能还必须蹭Java的流量，于是布兰登临危受命，十天时间设计了JS的最初版本。
 ## JavaScript 的10个设计缺陷
