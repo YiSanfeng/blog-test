@@ -117,9 +117,9 @@
 ### 修改隐藏属性
 1. 不推荐使用__proto__(会降低性能)
 2. 推荐使用Object.create
-* <pre>let obj=Object.create(common)
-  obj.name='frank'</pre>
-* <pre>let obj2=Object.create(common)
-  obj.name='jack'</pre>
+* <pre>
+  let common(name='frank') //首先增加一个变量，并声明他的属性
+  let obj=Object.create(common) //引用common的属性作为obj的原型
+  </pre>
 * 注释：规范大概的意思是，要改就一开始就改，别后来再改
 

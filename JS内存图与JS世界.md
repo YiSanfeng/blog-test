@@ -1,8 +1,8 @@
 # JS内存图与JS世界
 ## 瓜分内存
 * 数据区：stack区、heap区
-* stack是顺序存放
-* heap是随机存放
+* stack（栈）是顺序存放
+* heap（堆）是随机存放
 ### stack和heap规律
 * 数据分为对象和非对象
 * 非对象存在stack

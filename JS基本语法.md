@@ -47,7 +47,8 @@ console.log('a等于2')</pre>
 <pre>例句：function abs(n){
     return a>0?n:-n
 }
-/*如果a>0就返回n，否则就返回-n*/</pre>
+/*如果a>0就返回n，否则就返回-n*/
+ '?'表示语句成立，然后后面接返回值，':'表示语句不成立，然后后面接返回值</pre>
 ## while for 语句
 ### while
 * 语法
