@@ -29,7 +29,7 @@
 1. \'表示'
 2. \"表示"
 3. \n表示换行
-4. \n表示回车
+4. \r表示回车
 5. \t表示tab制表符
 6. \ \表示\
 7. \uFFFF表示对应的Unicode字符
@@ -41,24 +41,51 @@
 4. s[4] // "0"
 5. 字符的第一位的下标从0开始算
 ## base64 转码
-1. 写法：<pre>window.atob('要转的内容')</pre>
+1. 转码写法：<pre>window.atob('要转的内容')</pre>
+2. 反编码写法：<pre>window.btoa('要转的内容')</pre>
 ## 五个falsy值（相当于false但又不是false的值）
 1. 分别是undefined、null、0、NaN、''
+2. <pre>if(hello){ //这里的hello就是真值，如果是真值就会执行当前花括号里的内容
+    }else{ //如果if后面的圆括号内是undefined、null、0、NaN、''这些假值，就会跳过if后面的内容，然后去执行else里花括号
+    }
+## 变量声明var、let、const
+* 三种声明方式
+1. var a = 1
+2. let a = 1
+3. const a = 1
+4. a = 1
+* 区别
+1. var是过时的、不好用的方式（此方式不允许用）
+2. let（变量声明时用）是新的，更合理的方式
+3. const（常量声明时用）是声明时必须赋值，且不能再改的方式
+4. 最后这种方式是错误的，不准这样声明
+### let声明
+* 规则
+1. 遵循块作用域，即使用范围不能超出{}
+2. 不能重复声明
+3. 可以赋值，也可以不赋值
+4. 必须先声明在使用，否则报错
+5. 全局声明的let变量，不会编程window属性，这点与var相反
+6. for循环配合let有奇效
+### const声明
+* 规则
+1. 跟let几乎一样
+2. 只有一条不一样：声明时就要赋值，赋值后不能更改（一次赋值就定死）
 ## 类型转换
-1. number转string（以n为例）
-* String（n）
-* n + ''（把n加上一个空的字符串，此法前端程序员常用方法）
-2. string转number（以s为例）
-* Number（s）
-* s -0
-* +s
-* parselnt(s)/parseFloat(s)
-3. x=>bool(以x为例)
-* Boolean(x)
-* !!x
-4. x=>string
-* String(x)
-* x.toString()
+* number转string（以n为例）
+1. String（n）//注意是大写
+2. n + ''（把n加上一个空的字符串，此法前端程序员常用方法）
+* string转number（以s为例）
+1. Number（s）
+2. s -0（此法前端程序员常用方法）
+3. +s（此法前端程序员常用方法）
+4. parseInt(s)/parseFloat(s)
+* x=>bool(以x为例)
+1. Boolean(x)
+2. !!x
+* x=>string
+1. String(x)
+2. x.toString() //1..toString合法，1.toString不合法，因为JS认为1.是个小数，后面会接数字
 ## 对象object
 1. 定义
 * 是无序的数据集合
