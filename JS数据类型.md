@@ -87,49 +87,48 @@
 1. String(x)
 2. x.toString() //1..toString合法，1.toString不合法，因为JS认为1.是个小数，后面会接数字
 ## 对象object
-1. 定义
-* 是无序的数据集合
-* 键值对的集合（键和值组成一对）
-* 键名(也叫属性名)是字符串，不是标识符，可以包含任意字符
-* 引号可以省略（非英文的特殊字符不建议省略），省略之后就只能写标识符
-* 就算引号省略了，键名也还是字符串（重要）
-* Object.keys(obj)可以得到所有的obj的所有key
-2. 写法
-* <pre>let obj={'name':'frank','age':'18'}</pre>
-* <pre>let obj=new Object({'name':'frank'})
+* *定义
+1. 是无序的数据集合
+2. 键值对的集合（键和值组成一对）
+3. 键名(也叫属性名key)是字符串，不是标识符，可以包含任意字符
+4. 引号可以省略（非英文的特殊字符不建议省略），省略之后就只能写标识符
+5. 就算引号省略了，键名也还是字符串（重要）
+6. Object.keys(obj)可以得到所有的obj的所有key
+* *写法
+1. <pre>let obj={'name':'frank','age':'18'}</pre>
+2. <pre>let obj=new Object({'name':'frank'})
   console.log({'name':'frank','age':'18'})</pre>
 ## 变量做属性名
-1. 如何用变量做属性名
-* 之前都是用常量做属性名
-* let p1='name'
-* let obj={p1:'frank'}这样写，属性名为'p1'
-* let obj={[p1]:'frank'}这样写，属性名为'name'
-2. 对比
-* 不加[]的属性名会自动编程字符串
-* 加了[]则会当作变量求值
-* 值如果不是字符串，则会自动变成字符串
+* 如何用变量做属性名
+1. 之前都是用常量做属性名
+2. let p1='name'
+3. let obj={p1:'frank'}这样写，属性名为'p1'
+4. let obj={[p1]:'frank'}这样写，属性名为'name'
+* 对比
+1. 不加[ ]的属性名会自动变成字符串
+2. 加了[ ]则会当作变量求值
+3. 值如果不是字符串，则会自动变成字符串
 # 对象的增删改查
 ## 
-### 删除属性(delete用来删属性用)
-1. delete obj.xxx或delete obj[ 'xxx' ] (同时删除属性名和属性值)
-2. obj.xxx=undefined（没有删除属性名，只删除了属性值）
+### 删除属性(delete只能用来删除属性)
+* delete obj.xxx或delete obj[ 'xxx' ] (同时删除属性名和属性值)
+* obj.xxx=undefined（没有删除属性名，只删除了属性值）//此方法不适用于查看当前对象是否存在这个属性，因为就算没有这个属性JS也是不会报错的，想查看就要用in
 * 查看对象里是否存在某个属性名
-3. 'xxx' in obj ===false（不存在）/true（存在）
+1. 'xxx' in obj ===false（不存在）/true（存在）
 * 'xxx' in obj && obj.xxx===undefined
-4. 注意obj.xxx===undefined
-* obj.xxx是否为obj的属性
+1. 注意obj.xxx===undefined
 ### 查看属性
-1. 查看自身所有属性
-* 查看所有keys:Object keys(xxx)
-* 查看所有values:Object values(xxx)
-* 查看所有keys和values:Object entries(xxx)
-2. 查看自身+共有属性
-* console.dir(xxx)
-3. 判断一个属性是自身的还是共有的
-* obj.hasOwnProperty('toString')
-4. 两种方法查看属性（新人推荐使用中括号法）
-* 中括号语法：obj[ 'key' ]
-* 点语法：obj.key
+* 查看自身所有属性
+1. 查看所有keys:Object keys(xxx)
+2. 查看所有值（values）:Object values(xxx)
+3. 查看所有属性（keys）和值（values）:Object entries(xxx)
+* 查看自身+共有属性
+1. console.dir(xxx)
+* 判断一个属性是自身的还是共有的
+1. obj.hasOwnProperty('toString')
+* 两种方法查看属性（新人推荐使用中括号法）
+1. 中括号语法：obj[ 'key' ]
+2. 点语法：obj.key
 #### 补充点
 1. <pre>obj.name等价于obj.['name']</pre>
 2. <pre>obj.name不等价于obj.[name]</pre>
@@ -138,9 +137,19 @@
    obj[name]等价于obj['frank']
    因为已经声明了变量name等于字符串'frank'</pre>
 ### 写属性
-1. 批量赋值<pre>Object.assign(obj,{age:18,gender:'man'})</pre>
-2. 修改或增加共有属性
-1. 无法通过自身修改或增加来改变共有属性（如果进行此操作，只会在自身对象里修改或增加此属性）
+* 直接赋值
+1. let obj = {name: 'frank'}// 是字符串
+2. obj.name = 'frank'//name是字符串
+3. obj[ 'name' ]='frank'
+4. obj['na' + 'me']='frank'
+5. let key = 'name';obj[ key ]= 'frank'
+
+* 批量赋值<pre>Object.assign(obj,{age:18,gender:'man'})</pre>
+### 修改或增加共有属性
+* 无法通过自身修改或增加来改变共有属性（如果进行此操作，只会在自身对象里修改或增加此属性，并不会影响共有属性）
+1. let obj={},obj2={}//共有toString
+2. obj.toString='xxx'只会更改obj自身属性
+3. obj2.toString还是在原型上，toString的值并不是'xxx'
 ### 修改隐藏属性
 1. 不推荐使用__proto__(会降低性能)
 2. 推荐使用Object.create
